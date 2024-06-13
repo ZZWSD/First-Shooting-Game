@@ -27,6 +27,8 @@ public class Weapon : MonoBehaviour
     public TextMeshProUGUI ammunitionDisplay; // 彈量顯示
     public TextMeshProUGUI reloadingDisplay;  // 顯示是不是正在換彈夾？
 
+    Animator animator;
+
 
 
     private void Start()
@@ -35,6 +37,7 @@ public class Weapon : MonoBehaviour
         reloadingDisplay.enabled = false;  // 將顯示正在換彈夾的字幕隱藏起來
 
         ShowAmmoDisplay();                 // 更新彈量顯示
+        animator = GetComponent<Animator>();
     }
 
     // 方法：射擊武器
@@ -42,6 +45,7 @@ public class Weapon : MonoBehaviour
     {
         if (isGun && bulletsLeft > 0 && !reloading)
         {
+            animator.SetTrigger("Fire");
             Ray ray = PlayerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));  // 從攝影機射出一條射線
             RaycastHit hit;  // 宣告一個射擊點
             Vector3 targetPoint;  // 宣告一個位置點變數，到時候如果有打到東西，就存到這個變數
@@ -68,11 +72,16 @@ public class Weapon : MonoBehaviour
             // 後座力模擬
             PlayerObejct.GetComponent<Rigidbody>().AddForce(-shootingDirection.normalized * recoilForce, ForceMode.Impulse);
         }
+        else if (isGun == false)
+        {
+            animator.SetTrigger("Fire");
+        }
         ShowAmmoDisplay();                 // 更新彈量顯示
 
         if (transform.GetChild(0).GetComponent<Animator>() != null)
             transform.GetChild(0).GetComponent<Animator>().SetTrigger("Fire");  // 觸發「Fire」的觸發變數
     }
+    
 
     private void OnEnable()
     {
