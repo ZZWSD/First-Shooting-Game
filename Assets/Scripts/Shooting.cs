@@ -6,6 +6,7 @@ using TMPro; //需要有這個才可控制文字框
 public class Shooting : MonoBehaviour
 {
     [Header("參考物件")]
+    public GameObject PlayerObject;
     public Camera PlayerCamera;
     public Transform attackPoint;
 
@@ -17,6 +18,7 @@ public class Shooting : MonoBehaviour
     public int bulletsLeft;     // 子彈還有多少顆？(如果沒有要測試，你可以設定成 Private)
     public float reloadTime;    // 設定換彈夾所需要的時間
     public float recoilForce;       // 反作用力
+    public float bulletSpeed;
 
     bool reloading;         // 布林變數：儲存是不是正在換彈夾的狀態？True：正在換彈夾、False：換彈夾的動作已結束
 
