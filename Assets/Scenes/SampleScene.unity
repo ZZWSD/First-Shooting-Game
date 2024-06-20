@@ -123,6 +123,51 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: debe7e2ae87151a449f345d68066194a, type: 2}
+--- !u!1 &49736644
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 49736646}
+  - component: {fileID: 49736645}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &49736645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49736644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e31dec99e0cb95d4c9630579413623dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeBarImage: {fileID: 1457778940}
+--- !u!4 &49736646
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49736644}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -19.585016, y: 1.7680823, z: 21.400618}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &109382956
 GameObject:
   m_ObjectHideFlags: 0
@@ -374,6 +419,7 @@ GameObject:
   m_Component:
   - component: {fileID: 518480138}
   - component: {fileID: 518480141}
+  - component: {fileID: 518480144}
   - component: {fileID: 518480140}
   - component: {fileID: 518480142}
   - component: {fileID: 518480139}
@@ -515,6 +561,21 @@ MonoBehaviour:
   weaponObjects:
   - {fileID: 6872136126830339243}
   - {fileID: 1955638703}
+--- !u!114 &518480144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 518480137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 423b837f8d84a5f4e9f1af2f32b565f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxLifeValue: 10
+  lifeHpChangeUnit: 2
+  gameManager: {fileID: 49736645}
 --- !u!1 &544585790
 GameObject:
   m_ObjectHideFlags: 0
@@ -532,7 +593,7 @@ GameObject:
   - component: {fileID: 544585797}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -661,7 +722,7 @@ MonoBehaviour:
   targetName: Player
   minimunTraceDistance: 150
   maxLife: 10
-  lifeBarImage: {fileID: 0}
+  lifeBarImage: {fileID: 1285800385}
 --- !u!54 &544585797
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2229,7 +2290,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -2489,7 +2550,7 @@ MonoBehaviour:
   attackPoint: {fileID: 455079576}
   bullet: {fileID: 2877838864594440677, guid: c32c5491688cbe2488c3d31822305b77, type: 3}
   isGun: 1
-  magazineSize: 12
+  magazineSize: 50
   bulletsLeft: 0
   reloadTime: 2
   recoilForce: 0
@@ -2956,3 +3017,4 @@ SceneRoots:
   - {fileID: 1074738836}
   - {fileID: 1218033270}
   - {fileID: 7559342132300665651}
+  - {fileID: 49736646}
